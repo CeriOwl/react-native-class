@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button, BackHandler } from 'react-native';
+import { View, Text, Button, BackHandler, StyleSheet } from 'react-native';
 
 export default class Pantallab extends Component {
   constructor(props) {
@@ -14,11 +14,20 @@ export default class Pantallab extends Component {
     const btnClick = () => {
       this.props.navigation.replace("Login");
     }
+    const nameUser = this.props.route.params.name;
+
     return (
       <View>
-        <Text> Bienvenido alumno </Text>
+        <Text style={styles.userName}> Bienvenido {nameUser}</Text>
+        <Text> Codigo {this.props.route.params.code}</Text>
         <Button title='Volver' onPress={btnClick}/>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+    userName: {
+      textTransform: "capitalize"
+    }
+})

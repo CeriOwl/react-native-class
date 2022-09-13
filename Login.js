@@ -13,7 +13,7 @@ export default class Login extends Component {
   }
 
   render() {
-    const changeView = () => {this.props.navigation.replace("Pantalla2")}
+    const changeView = (userName) => {this.props.navigation.replace("Pantalla2", userName)}
     const btnClick = () => {
         
         var xhttp = new XMLHttpRequest();
@@ -23,8 +23,11 @@ export default class Login extends Component {
                     console.log("F")
                     Alert.alert("ERROR", "Credenciales incorrectas")
                 }else{
-                    console.log(xhttp.responseText)
-                    changeView()
+                    let data = xhttp.responseText;
+                    let dataSeparate = data.split(",");
+                    let userName = dataSeparate[2]
+                    let code = dataSeparate[1]
+                    changeView({name: userName, code: code})
                 }
             }
         };

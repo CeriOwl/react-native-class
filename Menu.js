@@ -13,7 +13,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
-        <Stack.Screen name="Pantalla2" component={Pantallab}/>
+        <Stack.Screen name="Pantalla2" component={Pantallab} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
